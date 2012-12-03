@@ -1,0 +1,25 @@
+# 
+# /etc/fstab: static file system information
+#
+# <file system>	<dir>	<type>	<options>	<dump>	<pass>
+tmpfs		/tmp	tmpfs	nodev,nosuid	0	0
+# /dev/sda2
+UUID=6d5ae1b0-bd50-4966-9023-a8db90a99585	/         	ext4      	rw,relatime,discard,noatime,data=ordered	0 1
+
+# /dev/sda1
+UUID=991d3290-46ff-4b1d-9ec8-b9d771e4209c	/boot     	ext2      	rw,relatime,discard,noatime	0 2
+
+# /dev/sda3
+UUID=0e81af08-89da-4216-bb49-9a2e87e70604	/home     	ext4      	rw,relatime,data=ordered,discard,noatime	0 2
+
+//192.168.1.4/video    /home/matthias/SynoVideo        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
+//192.168.1.4/photo    /home/matthias/SynoPhoto        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
+//192.168.1.4/music    /home/matthias/SynoMusic        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
+//192.168.1.4/Documents    /home/matthias/SynoDocs        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
+//192.168.1.4/Backup    /home/matthias/SynoBackup        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
+//192.168.1.4/web    /home/matthias/SynoWeb        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
+//192.168.1.4/downloads    /home/matthias/SynoDownloads        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
+//192.168.1.4/homes    /home/matthias/SynoHome        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
+//192.168.1.4/transmission    /home/matthias/SynoTransmission        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
+
+
