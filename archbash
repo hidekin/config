@@ -1,0 +1,16 @@
+#!/bin/bash
+
+mkdir ~/SynoDocs
+mkdir ~/SynoDownloads
+mkdir ~/SynoTransmission
+mkdir ~/SynoVideo
+mkdir ~/SynoPhoto
+mkdir ~/SynoWeb
+mkdir ~/SynoHome
+mkdir ~/SynoMusic
+mkdir ~/SynoHome
+mkdir ~/SynoBackup
+
+cp /~/git/config/.synology.cred /~/
+
+
