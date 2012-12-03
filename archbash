@@ -1,13 +1,4 @@
 #!/bin/bash
-$USERPATH=/home/matthias/
-$AWESOME=$USERPATH/.config/awesome/
-if[-d "$AWESOME"]; then
-      rm -R ~/.config/awesome/
-      git clone https://github.com/hidekin/awesomeConfig.git
-	cd $USERPATH/.config/
-	mv awesomeConfig/ awesome/		
-fi
-
 
 
 mkdir ~/SynoDocs
