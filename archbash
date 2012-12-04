@@ -1,28 +1,48 @@
 #!/bin/bash
+FSTAB_FILE="/home/matthias/git/config/README.md"
+USER="/home/matthias"
+NAS_MYDIR="/home/matthias/Syno*"
 
-##test
-mkdir ~/SynoDocs
-mkdir ~/SynoDownloads
-mkdir ~/SynoTransmission
-mkdir ~/SynoVideo
-mkdir ~/SynoPhoto
-mkdir ~/SynoWeb
-mkdir ~/SynoHome
-mkdir ~/SynoMusic
-mkdir ~/SynoHome
-mkdir ~/SynoBackup
-
-cp ~/git/config/.synology.cred ~/
+NAS=`ls -d $NAS_MYDIR | egrep '^d' | awk '{print $8}'`
+GITCONFIG_FOLDER="$USER/git/config/"
 
 
 
-echo " //192.168.1.4/video    /home/matthias/SynoVideo        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0 " >>~/README.md
-#//192.168.1.4/photo    /home/matthias/SynoPhoto        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
-#//192.168.1.4/music    /home/matthias/SynoMusic        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
-#//192.168.1.4/Documents    /home/matthias/SynoDocs        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
-#//192.168.1.4/Backup    /home/matthias/SynoBackup        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
-#//192.168.1.4/web    /home/matthias/SynoWeb        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
-#//192.168.1.4/downloads    /home/matthias/SynoDownloads        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
-#//192.168.1.4/homes    /home/matthias/SynoHome        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
-#//192.168.1.4/transmission    /home/matthias/SynoTransmission        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0
+
+if [ !  -d "$NAS" ]; then
+    
+mkdir $USER/SynoDocs
+mkdir $USER/SynoDownloads
+mkdir $USER/SynoTransmission
+mkdir $USER/SynoVideo
+mkdir $USER/SynoPhoto
+mkdir $USER/SynoWeb
+mkdir $USER/SynoHome
+mkdir $USER/SynoMusic
+mkdir $USER/SynoHome
+mkdir $USER/SynoBackup
+
+
+
+
+fi
+
+
+
+cp $USER/git/config/.synology.cred $USER/
+
+
+
+
+
+echo "//192.168.1.4/video    /home/matthias/SynoVideo        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0" >>$FSTAB_FILE
+echo "//192.168.1.4/photo    /home/matthias/SynoPhoto        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0" >>$FSTAB_FILE
+echo "//192.168.1.4/music    /home/matthias/SynoMusic        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0" >>$FSTAB_FILE
+echo "//192.168.1.4/Documents    /home/matthias/SynoDocs        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0" >>$FSTAB_FILE
+echo "//192.168.1.4/Backup    /home/matthias/SynoBackup        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0" >>$FSTAB_FILE
+echo "//192.168.1.4/web    /home/matthias/SynoWeb        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0" >>$FSTAB_FILE
+echo "//192.168.1.4/downloads    /home/matthias/SynoDownloads        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0" >>$FSTAB_FILE
+echo "//192.168.1.4/homes    /home/matthias/SynoHome        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0" >>$FSTAB_FILE
+echo "//192.168.1.4/transmission    /home/matthias/SynoTransmission        cifs    credentials=/home/matthias/.synology.cred,users,noauto,_netdev,noserverino,nounix,iocharset=utf8,gid=root,uid=matthias,file_mode=0777,dir_mode=0777 0 0" >>$FSTAB_FILE
+
 
