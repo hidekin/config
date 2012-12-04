@@ -1,12 +1,21 @@
 #!/bin/bash
 FSTAB_FILE="/home/matthias/git/config/README.md"
 USER="/home/matthias"
+AWESOME="$USER/.config/awesome"
+AWESOME_TEST="/home/matthias/git/config/awesome"
 NAS_MYDIR="/home/matthias/Syno*"
-
 NAS=`ls -d $NAS_MYDIR | egrep '^d' | awk '{print $8}'`
 GITCONFIG_FOLDER="$USER/git/config/"
 
 
+
+if [ -d "$AWESOME_TEST"]; then
+cd /home/matthias/git/config
+rm -R $AWESOME_TEST
+git clone https://github.com/hidekin/awesomeConfig.git
+
+mv $USER/git/config/awesomeConfig $USER/.config/awesome
+fi
 
 
 if [ !  -d "$NAS" ]; then
@@ -29,7 +38,7 @@ fi
 
 
 
-cp $USER/git/config/.synology.cred $USER/
+cp $USER/git/config/.synology.cred $USER
 
 
 
